@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Dịp Phạm Việt Đức</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            background-color: #0d1a2e;
+            /* Một màu xanh đen đậm hơn */
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Họa tiết nền mờ ảo */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 20%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 60%);
+            border-radius: 50%;
+            z-index: 0;
+            opacity: 0.5;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: 10%;
+            right: -15%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0) 70%);
+            border-radius: 50%;
+            z-index: 0;
+            opacity: 0.5;
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Hiệu ứng scroll-in */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* CSS cho modal xem ảnh */
+        .image-modal {
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-image {
+            transition: transform 0.3s ease;
+            max-width: 90vw;
+            max-height: 90vh;
+        }
+
+        nav a:hover {
+            color: #60a5fa;
+            /* Tailwind's blue-400 */
+        }
+    </style>
+</head>
+
+<body class="text-gray-200">
+
+    <!-- Header and Navigation -->
+    <header class="bg-white/5 backdrop-blur-lg sticky top-0 z-40">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-white">Dịp Phạm Việt Đức</a>
+            <div class="space-x-8 hidden md:flex">
+                <a href="#about" class="transition-colors duration-300">Giới thiệu</a>
+                <a href="#projects" class="transition-colors duration-300">Dự án</a>
+                <a href="#achievements" class="transition-colors duration-300">Thành tích</a>
+                <a href="#contact" class="transition-colors duration-300">Liên hệ</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7">
+                    </path>
+                </svg>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
+            <a href="#about" class="block transition-colors duration-300">Giới thiệu</a>
+            <a href="#projects" class="block transition-colors duration-300">Dự án</a>
+            <a href="#achievements" class="block transition-colors duration-300">Thành tích</a>
+            <a href="#contact" class="block transition-colors duration-300">Liên hệ</a>
+        </div>
+    </header>
+
+    <div class="content-wrapper">
+        <main class="container mx-auto px-6 py-12 md:py-20">
+
+            <!-- Section 1: Giới thiệu -->
+            <section id="about" class="min-h-screen flex items-center scroll-reveal">
+                <div
+                    class="w-full grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center bg-white/10 p-8 rounded-2xl shadow-2xl backdrop-blur-md border border-white/20">
+                    <div class="md:col-span-4 flex justify-center">
+                        <img src="https://i.ibb.co/L8r4JvW/avatar.jpg" alt="Ảnh đại diện Dịp Phạm Việt Đức"
+                            class="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover border-4 border-blue-400 shadow-lg">
+                    </div>
+                    <div class="md:col-span-8 text-center md:text-left">
+                        <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight">Dịp Phạm Việt Đức</h1>
+                        <p class="text-xl md:text-2xl text-blue-300 mt-2">Thực tập sinh kỹ sư Xây dựng</p>
+                        <p class="mt-6 text-gray-300 max-w-2xl mx-auto md:mx-0">
+                             Là một sinh viên ngành Kỹ thuật xây dựng, tôi hiện chưa có nhiều kinh nghiệm thực tế, phần lớn kiến thức và có được thông qua các hoạt động học thuật và các nghiên cứu với thầy cô trong quá trình học. Tôi mong muốn được làm việc trong một môi trường chuyên nghiệp, có chuyên môn cao để rèn luyện, nâng cao trình độ chuyên môn cũng như tích lũy kinh nghiệm thực tiễn phục vụ cho sự phát triển nghề nghiệp lâu dài.
+                        </p>
+                        <div class="mt-8 flex justify-center md:justify-start space-x-4">
+                             <a href="#contact" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-transform transform hover:scale-105">Liên hệ với tôi</a>
+                             <a href="#projects" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-6 rounded-lg transition-transform transform hover:scale-105">Các dự án đã thực hiện</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: Dự án nổi bật -->
+            <section id="projects" class="py-20 md:py-32">
+                <h2 class="text-4xl font-bold text-center mb-16 scroll-reveal">Dự án Nổi bật</h2>
+
+                <!-- Dự án 1 -->
+                <div
+                    class="flex flex-col md:flex-row items-center gap-8 md:gap-12 mb-20 p-8 bg-white text-gray-800 rounded-2xl shadow-2xl scroll-reveal">
+                    <div class="md:w-1/2">
+                        <img src="https://placehold.co/600x400/0d1a2e/FFFFFF?text=Dự+án+1" alt="Hình ảnh dự án 1"
+                            class="rounded-lg shadow-lg w-full h-auto object-cover cursor-pointer zoomable">
+                    </div>
+                    <div class="md:w-1/2">
+                        <h3 class="text-2xl font-bold text-gray-900">Phân tích kết cấu nhà cao tầng</h3>
+                        <p class="text-blue-600 font-semibold my-2">Đồ án môn học</p>
+                        <p class="text-gray-600">
+                            Dự án tập trung vào việc sử dụng phần mềm ETABS và SAP2000 để mô hình hóa và phân tích kết cấu
+                            chịu lực của một tòa nhà 20 tầng. Bao gồm việc tính toán tải trọng, phân tích nội lực, và
+                            kiểm tra độ bền của các cấu kiện chính.
+                        </p>
+                        <div class="mt-4">
+                            <span
+                                class="inline-block bg-blue-100 text-blue-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded-full">ETABS</span>
+                            <span
+                                class="inline-block bg-blue-100 text-blue-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded-full">SAP2000</span>
+                            <span
+                                class="inline-block bg-blue-100 text-blue-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded-full">AutoCAD</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dự án 2 -->
+                <div
+                    class="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12 p-8 bg-white text-gray-800 rounded-2xl shadow-2xl scroll-reveal">
+                    <div class="md:w-1/2">
+                        <img src="https://placehold.co/600x400/0d1a2e/FFFFFF?text=Dự+án+2" alt="Hình ảnh dự án 2"
+                            class="rounded-lg shadow-lg w-full h-auto object-cover cursor-pointer zoomable">
+                    </div>
+                    <div class="md:w-1/2">
+                        <h3 class="text-2xl font-bold text-gray-900">Nghiên cứu khoa học: Vật liệu Xây dựng Xanh</h3>
+                        <p class="text-blue-600 font-semibold my-2">Dự án Nghiên cứu</p>
+                        <p class="text-gray-600">
+                            Tham gia nhóm nghiên cứu về tính khả thi của việc sử dụng bê tông tái chế trong các công
+                            trình dân dụng tại Việt Nam. Dự án tập trung vào việc thí nghiệm các mẫu vật liệu, đánh giá
+                            cường độ và các đặc tính cơ lý, đề xuất quy trình ứng dụng.
+                        </p>
+                         <div class="mt-4">
+                            <span
+                                class="inline-block bg-green-100 text-green-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded-full">Nghiên cứu</span>
+                            <span
+                                class="inline-block bg-green-100 text-green-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded-full">Thí nghiệm</span>
+                            <span
+                                class="inline-block bg-green-100 text-green-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded-full">Bền vững</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: Thành tích -->
+            <section id="achievements" class="py-20 md:py-32">
+                <h2 class="text-4xl font-bold text-center mb-16 scroll-reveal">Thành tích & Chứng nhận</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Thành tích 1 -->
+                    <div class="bg-white/10 p-6 rounded-2xl shadow-lg backdrop-blur-md border border-white/20 text-center scroll-reveal">
+                        <img src="https://sv2.anhsieuviet.com/2025/09/10/z6911958018361_0dc5ed2a54c374991a873eaa3401e919.jpg" alt="Giải khuyến khích NCKH" class="w-full h-56 object-contain rounded-md mb-4 cursor-pointer zoomable">
+                        <h3 class="text-xl font-semibold text-white">Giải khuyến khích NCKH</h3>
+                        <p class="text-gray-300 mt-2">Đạt giải khuyến khích Nghiên cứu Khoa học Sinh viên năm học 2023-2024.</p>
+                    </div>
+
+                    <!-- Thành tích 2 -->
+                     <div class="bg-white/10 p-6 rounded-2xl shadow-lg backdrop-blur-md border border-white/20 text-center scroll-reveal" style="transition-delay: 150ms;">
+                        <img src="https://sv2.anhsieuviet.com/2025/09/10/z6911958018358_b402fadba551d895d19032eab99dad81.jpg" alt="Olympic Cơ học Toàn quốc" class="w-full h-56 object-contain rounded-md mb-4 cursor-pointer zoomable">
+                        <h3 class="text-xl font-semibold text-white">Olympic Cơ học Toàn quốc</h3>
+                        <p class="text-gray-300 mt-2">Tham dự Olympic Cơ học Toàn quốc Lần thứ 34 - Môn Thủy lực.</p>
+                    </div>
+
+                    <!-- Thành tích 3 -->
+                    <div class="bg-white/10 p-6 rounded-2xl shadow-lg backdrop-blur-md border border-white/20 text-center scroll-reveal" style="transition-delay: 300ms;">
+                        <img src="https://sv2.anhsieuviet.com/2025/09/10/ket_cau_chiu_luc_n3.signed.jpg" alt="Thi học thuật, sáng tạo" class="w-full h-56 object-contain rounded-md mb-4 cursor-pointer zoomable">
+                        <h3 class="text-xl font-semibold text-white">Thi học thuật, sáng tạo</h3>
+                        <p class="text-gray-300 mt-2">Tham gia cuộc thi học thuật, sáng tạo sinh viên Phân hiệu năm học 2023-2024.</p>
+                    </div>
+                    
+                     <!-- Thành tích 4 -->
+                    <div class="bg-white/10 p-6 rounded-2xl shadow-lg backdrop-blur-md border border-white/20 text-center scroll-reveal" style="transition-delay: 450ms;">
+                        <img src="https://sv2.anhsieuviet.com/2025/09/10/giay_chung_nhan_v2__kem_qdpages2.signed.jpg" alt="Chứng nhận NCKH" class="w-full h-56 object-contain rounded-md mb-4 cursor-pointer zoomable">
+                        <h3 class="text-xl font-semibold text-white">Chứng nhận NCKH</h3>
+                        <p class="text-gray-300 mt-2">Chứng nhận tham gia Nghiên cứu Khoa học sinh viên năm học 2023-2024.</p>
+                    </div>
+
+                     <!-- Thành tích 5 -->
+                     <div class="bg-white/10 p-6 rounded-2xl shadow-lg backdrop-blur-md border border-white/20 text-center scroll-reveal" style="transition-delay: 600ms;">
+                        <img src="https://sv2.anhsieuviet.com/2025/09/10/giay_chung_nhan_v2__kem_qdpages6.signed.jpg" alt="Chứng nhận NCKH (cá nhân)" class="w-full h-56 object-contain rounded-md mb-4 cursor-pointer zoomable">
+                        <h3 class="text-xl font-semibold text-white">Chứng nhận NCKH (cá nhân)</h3>
+                        <p class="text-gray-300 mt-2">Chứng nhận cá nhân tham gia Nghiên cứu Khoa học sinh viên năm học 2023-2024.</p>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Section 4: Liên hệ -->
+            <section id="contact" class="py-20 md:py-32">
+                 <div class="text-center max-w-2xl mx-auto scroll-reveal">
+                    <h2 class="text-4xl font-bold text-white mb-4">Kết nối với tôi</h2>
+                    <p class="text-gray-300 mb-8">
+                        Tôi rất mong được trao đổi về các cơ hội thực tập, việc làm, hoặc các dự án hợp tác thú vị trong lĩnh vực Xây dựng. Xin vui lòng liên hệ qua các thông tin dưới đây.
+                    </p>
+                    <div class="bg-white/10 p-8 rounded-2xl shadow-2xl backdrop-blur-md border border-white/20 inline-block">
+                        <p class="text-lg text-white"><strong>Email:</strong> <a href="mailto:dipphamvietduc@gmail.com" class="text-blue-300 hover:underline">dipphamvietduc@gmail.com</a></p>
+                        <p class="text-lg text-white mt-2"><strong>Số điện thoại:</strong> <a href="tel:0388938945" class="text-blue-300 hover:underline">0388938945</a></p>
+                        <p class="text-lg text-white mt-2"><strong>LinkedIn:</strong> <a href="#" class="text-blue-300 hover:underline">linkedin.com/in/vietduc-dp</a></p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white/5 py-6">
+        <div class="container mx-auto px-6 text-center text-gray-400">
+            <p>&copy; 2025 Dịp Phạm Việt Đức. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+    <!-- Image Modal -->
+    <div id="image-modal"
+        class="image-modal fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center p-4 z-50 opacity-0 pointer-events-none">
+        <img id="modal-image" src="" alt="Hình ảnh xem lớn" class="modal-image rounded-lg shadow-2xl">
+        <button id="close-modal-button"
+            class="absolute top-4 right-4 text-white text-4xl font-bold">&times;</button>
+    </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Close mobile menu when a link is clicked
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // Image Modal Logic
+            const imageModal = document.getElementById('image-modal');
+            const modalImage = document.getElementById('modal-image');
+            const closeModalButton = document.getElementById('close-modal-button');
+            const zoomableImages = document.querySelectorAll('.zoomable');
+
+            zoomableImages.forEach(img => {
+                img.addEventListener('click', () => {
+                    modalImage.src = img.src;
+                    imageModal.classList.remove('opacity-0', 'pointer-events-none');
+                });
+            });
+
+            const closeModal = () => {
+                imageModal.classList.add('opacity-0', 'pointer-events-none');
+            };
+
+            closeModalButton.addEventListener('click', closeModal);
+            imageModal.addEventListener('click', (e) => {
+                // Chỉ đóng khi click vào nền, không đóng khi click vào ảnh
+                if (e.target === imageModal) {
+                    closeModal();
+                }
+            });
+
+            // Scroll reveal animation
+            const scrollElements = document.querySelectorAll('.scroll-reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            scrollElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+
+</html>
